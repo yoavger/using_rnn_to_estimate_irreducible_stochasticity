@@ -1,5 +1,6 @@
-# 
-Using recurrent neural network to estimate irreducible stochasticity in human choice-behavior
+# Using recurrent neural network to estimate irreducible stochasticity in human choice-behavior
+git repo accompanying the project https://psyarxiv.com/ve4rg
+
 
 ## Background 
 Theory-driven computational modeling allows estimation of latent cognitive variables.  
