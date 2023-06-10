@@ -17,7 +17,7 @@ Here we examine the use of RNNs to disentangled this two factors.
 - simulating agents, fitting the theoretical models, RNN and Logistic regression model
 run the following notebook:
 ```
-study_1_simulation/code/sim_fit_predict_agents.ipynb
+study_1_simulation/code/sim_fit_predict.ipynb
 ```
 - plotting Figures of study 1 
 ```
@@ -26,7 +26,7 @@ study_1_simulation/code/plots.ipynb
 ## study_2_emprical
 - Fitting the theoretical hybrid model and RNN
 ```
-study_2_emprical/code/fit_predict_agents.ipynb
+study_2_emprical/code/fit_predict.ipynb
 ```
 - To run the bayesian analysis of study 2 
 ```
