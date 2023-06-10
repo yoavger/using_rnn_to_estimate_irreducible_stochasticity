@@ -3,7 +3,7 @@ import pandas as pd
 from utils import *
 from scipy.optimize import minimize
 
-def habit_fit(df,num_of_parameters_to_recover=3):
+def habit_fit(df,num_of_parameters_to_recover=4):
     """
     this funcation performs parameters recovery of habitual agent on the two-stage task  
     Args:
@@ -14,8 +14,9 @@ def habit_fit(df,num_of_parameters_to_recover=3):
     # sample initial guess of the parameters to recover 
     initial_guess = [np.random.uniform(0,1) for _ in range(num_of_parameters_to_recover)]
     initial_guess[2] = np.random.uniform(0.1,10)
+    initial_guess[3] = np.random.uniform(0.1,10)
     # set bounds to the recover parameters 
-    bounds = [(0,1),(0,1),(0.1,10)]
+    bounds = [(0,1),(0,1),(0.1,10),(0.1,10)]
     res = minimize(
                     fun=parameters_recovary,
                     x0=initial_guess,
@@ -45,7 +46,7 @@ def parameters_recovary(parameters, df):
     alpha_1 = parameters[0]
     alpha_2 = parameters[1]
     beta_1 = parameters[2]
-    beta_2 = beta_1
+    beta_2 = parameters[3]
     
     # initialize Habit matrix
     H = np.zeros(2) + .5

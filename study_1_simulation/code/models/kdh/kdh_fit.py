@@ -3,7 +3,7 @@ import pandas as pd
 from utils import *
 from scipy.optimize import minimize
 
-def kdh_fit(df,num_of_parameters_to_recover=3):
+def kdh_fit(df,num_of_parameters_to_recover=4):
     """
     this funcation performs parameters recovery of k-Dominant Hand agent on the two-stage task  
     Args:
@@ -43,14 +43,17 @@ def parameters_recovary(parameters, df):
     p_0 = parameters[0]
     p_1 = parameters[1]
     p_2 = parameters[2]
+    p_3 = parameters[3]
                     
     for t in range(num_of_trials):
         
-        p = [p_0, 1-p_0]        
+        p = p_0 if t%2==0 else p_1
+        
+        p = [p, 1-p]        
         p_choice_1[t] = p[action_stage_1[t]]
 
         state = state_of_stage_2[t]
-        p_state = p_1 if state==0 else p_2
+        p_state = p_2 if state==0 else p_3
         p_state = [p_state, 1-p_state]        
         p_choice_2[t] = p_state[action_stage_2[t]]
 

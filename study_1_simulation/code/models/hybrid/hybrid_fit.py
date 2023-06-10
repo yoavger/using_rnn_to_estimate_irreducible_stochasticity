@@ -3,7 +3,7 @@ import pandas as pd
 from utils import *
 from scipy.optimize import minimize
 
-def hybrid_fit(df,num_of_parameters_to_recover=5):
+def hybrid_fit(df,num_of_parameters_to_recover=6):
     """
     this funcation performs parameters recovery of hybrid agent on the two-stage task  
     Args:
@@ -14,7 +14,8 @@ def hybrid_fit(df,num_of_parameters_to_recover=5):
     # sample initial guess of the parameters to recover 
     initial_guess = [np.random.uniform(0,1) for _ in range(num_of_parameters_to_recover)]
     initial_guess[2] = np.random.uniform(0.1,10)
-    bounds = [(0,1),(0,1),(0.1,10),(0,1),(0,1)]
+    initial_guess[3] = np.random.uniform(0.1,10)
+    bounds = [(0,1),(0,1),(0.1,10),(0.1,10),(0,1),(0,1)]
     res = minimize(
                     fun=parameters_recovary,
                     x0=initial_guess,
@@ -53,9 +54,9 @@ def parameters_recovary(parameters, df):
     alpha_1 = parameters[0]
     alpha_2 = parameters[1]
     beta_1 = parameters[2]
-    beta_2 = beta_1
-    w = parameters[3]
-    lambd = parameters[4]
+    beta_2 =  parameters[3]
+    w = parameters[4]
+    lambd = parameters[5]
     perseveration = 0
 
     for t in range(num_of_trials):

@@ -31,6 +31,7 @@ def kdh_sim(parameters, num_of_trials, expected_reward):
     p_0 = parameters['p_0']
     p_1 = parameters['p_1']
     p_2 = parameters['p_2']
+    p_3 = parameters['p_3']
 
     # state transition structure common/rare
     transition_prob = np.array(
@@ -48,7 +49,7 @@ def kdh_sim(parameters, num_of_trials, expected_reward):
     for t in range(num_of_trials):
         
         # probability of selecting action 0 in first stage 
-        p = p_0
+        p = p_0 if t%2==0 else p_1
 
         # choose action according to the probability of the first stage
         action_1 = np.random.choice([0,1] , p=[p, 1-p])
@@ -58,7 +59,7 @@ def kdh_sim(parameters, num_of_trials, expected_reward):
         # transation to second stage according to action and transation type
         state = state_transition_mat[action_1,transition_type]
 
-        p_state = p_1 if state==0 else p_2
+        p_state = p_2 if state==0 else p_3
         
         # choose action according to the probability of the second stage
         action_2 = np.random.choice([0,1] , p=[p_state, 1-p_state])

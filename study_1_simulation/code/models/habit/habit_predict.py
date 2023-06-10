@@ -40,7 +40,7 @@ def habit_predict(df,parameters):
     alpha_1 = parameters[0]
     alpha_2 = parameters[1]
     beta_1 = parameters[2]
-    beta_2 = beta_1
+    beta_2 = parameters[3]
 
     # initialize Habits matrix
     H = np.zeros(2) + .5

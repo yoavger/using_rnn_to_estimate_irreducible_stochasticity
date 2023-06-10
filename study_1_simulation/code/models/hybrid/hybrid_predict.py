@@ -37,9 +37,9 @@ def hybrid_predict(df,parameters):
     alpha_1 = parameters[0]
     alpha_2 = parameters[1]
     beta_1 = parameters[2]
-    beta_2 = beta_1
-    w = parameters[3]
-    lambd = parameters[4]
+    beta_2 = parameters[3]
+    w = parameters[4]
+    lambd = parameters[5]
     perseveration = 0
 
     # initialize Q-values 

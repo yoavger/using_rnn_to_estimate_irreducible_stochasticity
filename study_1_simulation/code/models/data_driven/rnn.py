@@ -71,7 +71,7 @@ class GRU_NN(nn.Module):
         self.hidden_size = hidden_size
         
         super(GRU_NN, self).__init__()
-        self.hidden = nn.GRU(input_size=input_size, hidden_size=hidden_size, num_layers=num_layers,batch_first=True)
+        self.hidden = nn.GRU(input_size=input_size, hidden_size=hidden_size, num_layers=num_layers, batch_first=True)
         self.out = nn.Linear(hidden_size, output_size)
         
     def forward(self, x):

@@ -47,17 +47,9 @@ def configuration_parameters_habit():
     parameters = {
                 'alpha_1' : np.random.uniform(), # 0 <= alpha <= 1 of stage 1
                 'alpha_2' : np.random.uniform(), # 0 <= alpha <= 1 of stage 2
-                'beta_1' : np.random.uniform(0.1,10), # 0 <= beta <= 10  inverse temperature beta of stage 1
-                'beta_2' : np.random.uniform(0.1,10), # 0 <= beta <= 10 inverse temperature beta of stage 2
+                'beta_1' : np.random.uniform(0.1,4), # 0 <= beta <= 10  inverse temperature beta of stage 1
+                'beta_2' : np.random.uniform(0.1,4), # 0 <= beta <= 10 inverse temperature beta of stage 2
         }
-    return parameters
-
-def configuration_parameters_wsls():
-    # 2 free parameters (p_stay_win, p_shift_lose)
-    parameters = {
-                'p_stay_win' : np.random.uniform(), # 0 <= p_stay_win <= 1
-                'p_shift_lose' : np.random.uniform() # 0 <= p_shift_lose <= 1
-    }
     return parameters
 
 def configuration_parameters_kdh():
@@ -65,7 +57,8 @@ def configuration_parameters_kdh():
     parameters = {
                 'p_0' : np.random.uniform(),
                 'p_1' : np.random.uniform(),
-                'p_2' : np.random.uniform()
+                'p_2' : np.random.uniform(),
+                'p_3' : np.random.uniform()
 
     }
     return parameters

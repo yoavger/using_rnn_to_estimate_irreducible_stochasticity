@@ -24,7 +24,7 @@ def habit_sim(parameters, num_of_trials, expected_reward):
     alpha_1 = parameters['alpha_1']
     alpha_2 = parameters['alpha_2']
     beta_1 = parameters['beta_1']
-    beta_2 = beta_1
+    beta_2 = parameters['beta_2']
 
     H = np.zeros(2) + .5 
     H_s_two = np.zeros(shape=(2,2)) + .5 

@@ -36,10 +36,12 @@ def kdh_predict(df,parameters):
     p_0 = parameters[0]
     p_1 = parameters[1]
     p_2 = parameters[2]
+    p_3 = parameters[3]
     
     for t in range(num_of_trials):
-        p = p_0
-        p = [p_0, 1-p_0]
+        
+        p = p_0 if t%2==0 else p_1
+        p = [p, 1-p]
 
         # predict action according max probs 
         action_1_predict = np.argmax(p)
@@ -47,7 +49,7 @@ def kdh_predict(df,parameters):
         
         state = state_of_stage_2[t]
 
-        p_state = p_1 if state==0 else p_2
+        p_state = p_2 if state==0 else p_3
         p_state = [p_state, 1-p_state]
         p_choice_2[t] = p_state[0]
         
