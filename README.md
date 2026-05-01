@@ -1,5 +1,5 @@
 # Using recurrent neural network to estimate irreducible stochasticity in human choice-behavior
-git repo accompanying the project https://psyarxiv.com/ve4rg
+git repo accompanying the project https://elifesciences.org/articles/90082
 
 
 ## Background 
